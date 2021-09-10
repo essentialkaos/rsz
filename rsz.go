@@ -34,7 +34,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "0.0.1"
+	VER  = "0.0.2"
 	DESC = "Simple utility for image resizing"
 )
 
@@ -401,7 +401,8 @@ func genMan() int {
 func genUsage() *usage.Info {
 	info := usage.NewInfo("", "src-image", "size", "output-image")
 
-	info.AddOption(OPT_FILTER, "Resampling filter name")
+	info.AddOption(OPT_FILTER, "Resampling filter name", "name")
+	info.AddOption(OPT_LIST_FILTERS, "Print list of supported resampling filters")
 	info.AddOption(OPT_NO_COLOR, "Disable colors in output")
 	info.AddOption(OPT_HELP, "Show this help message")
 	info.AddOption(OPT_VER, "Show version")
@@ -409,6 +410,11 @@ func genUsage() *usage.Info {
 	info.AddExample(
 		"image.png 256x256 thumbnail.png",
 		"Convert image to exact size",
+	)
+
+	info.AddExample(
+		"-f Lanczos image.png 256x256 thumbnail.png",
+		"Convert image to exact size using Lanczos resampling filter",
 	)
 
 	info.AddExample(

@@ -62,6 +62,29 @@ rsz --generate-man | sudo gzip > /usr/share/man/man1/rsz.1.gz
 ### Usage
 
 ```
+Usage: rsz {options} src-image size output-image
+
+Options
+
+  --filter, -f name     Resampling filter name
+  --list-filters, -F    Print list of supported resampling filters
+  --no-color, -nc       Disable colors in output
+  --help, -h            Show this help message
+  --version, -v         Show version
+
+Examples
+
+  rsz image.png 256x256 thumbnail.png
+  Convert image to exact size
+
+  rsz -f Lanczos image.png 256x256 thumbnail.png
+  Convert image to exact size using Lanczos resampling filter
+
+  rsz image.png 25% thumbnail.png
+  Convert image to relative size (25% of original)
+
+  rsz image.png 0.55 thumbnail.png
+  Convert image to relative size (55% of original)
 
 ```
 
