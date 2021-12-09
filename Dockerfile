@@ -8,7 +8,8 @@ COPY . .
 
 ENV GO111MODULE=auto
 
-RUN apk add --no-cache git=~2.32 make=4.3-r0 upx=3.96-r1 && \
+# hadolint ignore=DL3018
+RUN apk add --no-cache git make upx && \
     make deps && \
     make all && \
     upx rsz

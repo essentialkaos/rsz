@@ -26,7 +26,7 @@ go install github.com/essentialkaos/rsz
 
 #### Prebuilt binaries
 
-You can download prebuilt binaries for Linux and OS X from [EK Apps Repository](https://apps.kaos.st/rsz/latest):
+You can download prebuilt binaries for Linux and macOS from [EK Apps Repository](https://apps.kaos.st/rsz/latest):
 
 ```bash
 bash <(curl -fsSL https://apps.kaos.st/get) rsz
