@@ -13,7 +13,6 @@ jobs:
 
     env:
       SRC_DIR: src/github.com/${{ github.repository }}
-      GO111MODULE: auto
 
     strategy:
       matrix:
@@ -25,12 +24,6 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
         id: go
-
-      - name: Setup PATH
-        run: |
-          echo "GOPATH=${{ github.workspace }}" >> "$GITHUB_ENV"
-          echo "GOBIN=${{ github.workspace }}/bin" >> "$GITHUB_ENV"
-          echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -80,3 +73,9 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -f Dockerfile -t rsz .
+
+      - name: Show info about built Docker image
+        uses: essentialkaos/docker-info-action@v1
+        with:
+          image: rsz
+          show-labels: true
