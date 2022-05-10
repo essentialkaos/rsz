@@ -34,7 +34,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "0.0.3"
+	VER  = "0.0.4"
 	DESC = "Simple utility for image resizing"
 )
 
@@ -176,8 +176,10 @@ func listFilters() {
 }
 
 // process starts image processing
-func process(args []string) {
-	srcImage, size, outImage := args[0], args[1], args[2]
+func process(args options.Arguments) {
+	srcImage := args.Get(0).Clean().String()
+	size := args.Get(1).String()
+	outImage := args.Get(2).Clean().String()
 
 	err := checkSrcImage(srcImage)
 
