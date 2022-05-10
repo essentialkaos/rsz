@@ -8,7 +8,7 @@
   <a href="#license"><img src="https://gh.kaos.st/apache2.svg"></a>
 </p>
 
-<p align="center"><a href="#installation">Installation</a> • <a href="#command-line-completion">Command-line completion</a> • <a href="#man-documentation">Man documentation</a> • <a href="#usage">Usage</a> • <a href="#build-status">Build Status</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
+<p align="center"><a href="#installation">Installation</a> • <a href="#command-line-completion">Command-line completion</a> • <a href="#man-documentation">Man documentation</a> • <a href="#usage">Usage</a> • <a href="#ci-status">CI Status</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
 
 <br/>
 
@@ -21,7 +21,7 @@
 To build the `rsz` from scratch, make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ```
-go install github.com/essentialkaos/rsz
+go install github.com/essentialkaos/rsz@latest
 ```
 
 #### Prebuilt binaries
@@ -30,6 +30,22 @@ You can download prebuilt binaries for Linux and macOS from [EK Apps Repository]
 
 ```bash
 bash <(curl -fsSL https://apps.kaos.st/get) rsz
+```
+
+#### Docker Image
+
+The latest version of `rsz` also available as Docker image on [Docker Hub](https://kaos.sh/d/rsz) and [GitHub Container Registry](https://kaos.sh/p/rsz):
+
+```bash
+docker pull essentialkaos/rsz:latest
+docker run --rm -it essentialkaos/rsz:latest image.png 0.55 thumbnail.png
+```
+
+or
+
+```bash
+docker pull ghcr.io/essentialkaos/rsz:latest
+docker run --rm -it ghcr.io/essentialkaos/rsz:latest image.png 0.55 thumbnail.png
 ```
 
 ### Command-line completion
@@ -85,13 +101,12 @@ Examples
 
   rsz image.png 0.55 thumbnail.png
   Convert image to relative size (55% of original)
-
 ```
 
-### Build Status
+### CI Status
 
 | Branch | Status |
-|--------|----------|
+|--------|--------|
 | `master` | [![CI](https://kaos.sh/w/rsz/ci.svg?branch=master)](https://kaos.sh/w/rsz/ci?query=branch:master) |
 | `develop` | [![CI](https://kaos.sh/w/rsz/ci.svg?branch=develop)](https://kaos.sh/w/rsz/ci?query=branch:develop) |
 
