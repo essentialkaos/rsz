@@ -37,14 +37,12 @@ bash <(curl -fsSL https://apps.kaos.st/get) rsz
 The latest version of `rsz` also available as Docker image on [Docker Hub](https://kaos.sh/d/rsz) and [GitHub Container Registry](https://kaos.sh/p/rsz):
 
 ```bash
-docker pull essentialkaos/rsz:latest
 docker run --rm -it essentialkaos/rsz:latest image.png 0.55 thumbnail.png
 ```
 
 or
 
 ```bash
-docker pull ghcr.io/essentialkaos/rsz:latest
 docker run --rm -it ghcr.io/essentialkaos/rsz:latest image.png 0.55 thumbnail.png
 ```
 
