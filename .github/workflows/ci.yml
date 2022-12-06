@@ -54,7 +54,7 @@ jobs:
       - name: Check dockerfiles with Hadolint
         uses: essentialkaos/hadolint-action@v1
         with:
-          files: Dockerfile
+          files: .docker/*.docker
 
   DockerBuild:
     name: Docker Build Check
