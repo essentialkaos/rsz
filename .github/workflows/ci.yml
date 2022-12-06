@@ -63,8 +63,11 @@ jobs:
     needs: Hadolint
 
     env:
-      DOCKER_FILE: Dockerfile
-      IMAGE_NAME: rsz
+      REGISTRY: ghcr.io
+
+    strategy:
+      matrix:
+        image: [ 'alpine' ]
 
     steps:
       - name: Check event type
@@ -100,11 +103,11 @@ jobs:
       - name: Build Docker image
         if: ${{ github.event_name == 'pull_request' }}
         run: |
-          docker build -f ${{ env.DOCKER_FILE }} -t ${{ env.IMAGE_NAME }} .
+          docker build --build-arg REGISTRY=${REGISTRY} -f .docker/${{matrix.image}}.docker -t ${{matrix.image}} .
 
       - name: Show info about built Docker image
         uses: essentialkaos/docker-info-action@v1
         if: ${{ github.event_name == 'pull_request' }}
         with:
-          image: ${{ env.IMAGE_NAME }}
+          image: ${{matrix.image}}
           show-labels: true
