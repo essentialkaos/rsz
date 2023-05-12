@@ -1,13 +1,13 @@
 github.com/disintegration/imaging v1.6.2 h1:w1LecBlG2Lnp8B3jk5zSuNqd7b4DXhcjwek1ei82L+c=
 github.com/disintegration/imaging v1.6.2/go.mod h1:44/5580QXChDfwIclfc/PCwrr44amcmDAg8hxG0Ewe4=
 github.com/essentialkaos/check v1.4.0 h1:kWdFxu9odCxUqo1NNFNJmguGrDHgwi3A8daXX1nkuKk=
-github.com/essentialkaos/depsy v1.0.0 h1:FikBtTnNhk+xFO/hFr+CfiKs6QnA3wMD6tGL0XTEUkc=
-github.com/essentialkaos/depsy v1.0.0/go.mod h1:XVsB2eVUonEzmLKQP3ig2P6v2+WcHVgJ10zm0JLqFMM=
+github.com/essentialkaos/depsy v1.1.0 h1:U6dp687UkQwXlZU17Hg2KMxbp3nfZAoZ8duaeUFYvJI=
+github.com/essentialkaos/depsy v1.1.0/go.mod h1:kpiTAV17dyByVnrbNaMcZt2jRwvuXClUYOzpyJQwtG8=
 github.com/essentialkaos/ek/v12 v12.67.0 h1:ii15t0O+3Mu7uI3Te5X5BIqYXi1V7ovtSIYi5LyiltU=
 github.com/essentialkaos/ek/v12 v12.67.0/go.mod h1:sRgw+F7PeeoNsmLLVMKy5ccugwGSljk8/rTXC9dyT+M=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
 github.com/kr/text v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=
-github.com/rogpeppe/go-internal v1.9.0 h1:73kH8U+JUqXU8lRuOHeVHaa/SZPifC7BkcraZVejAe8=
+github.com/rogpeppe/go-internal v1.10.0 h1:TMyTOH3F/DB16zRVcYyreMH6GnZZrwQVAoYjRBZyWFQ=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
