@@ -220,39 +220,39 @@ func getResampleFilter() (imaging.ResampleFilter, error) {
 	filter := options.GetS(OPT_FILTER)
 
 	switch strings.ToLower(filter) {
-	case strings.ToLower("BSpline"):
+	case "bspline":
 		return imaging.BSpline, nil
-	case strings.ToLower("Bartlett"):
+	case "bartlett":
 		return imaging.Bartlett, nil
-	case strings.ToLower("Blackman"):
+	case "blackman":
 		return imaging.Blackman, nil
-	case strings.ToLower("Box"):
+	case "box":
 		return imaging.Box, nil
-	case strings.ToLower("CatmullRom"):
+	case "catmullrom":
 		return imaging.CatmullRom, nil
-	case strings.ToLower("Cosine"):
+	case "cosine":
 		return imaging.Cosine, nil
-	case strings.ToLower("Gaussian"):
+	case "gaussian":
 		return imaging.Gaussian, nil
-	case strings.ToLower("Hamming"):
+	case "hamming":
 		return imaging.Hamming, nil
-	case strings.ToLower("Hann"):
+	case "hann":
 		return imaging.Hann, nil
-	case strings.ToLower("Hermite"):
+	case "hermite":
 		return imaging.Hermite, nil
-	case strings.ToLower("Lanczos"):
+	case "lanczos":
 		return imaging.Lanczos, nil
-	case strings.ToLower("Linear"):
+	case "linear":
 		return imaging.Linear, nil
-	case strings.ToLower("MitchellNetravali"):
+	case "mitchellnetravali":
 		return imaging.MitchellNetravali, nil
-	case strings.ToLower("NearestNeighbor"):
+	case "nearestneighbor":
 		return imaging.NearestNeighbor, nil
-	case strings.ToLower("Welch"):
+	case "welch":
 		return imaging.Welch, nil
 	}
 
-	return imaging.ResampleFilter{}, fmt.Errorf("Unknown resampling filter \"%s\"", filter)
+	return imaging.ResampleFilter{}, fmt.Errorf("Unknown resampling filter %q", filter)
 }
 
 // checkSrcImage checks source image before processing
@@ -281,7 +281,7 @@ func parseSize(size string, bounds image.Rectangle) (int, int, error) {
 		return parseRelativeSize(size, bounds)
 	}
 
-	return 0, 0, fmt.Errorf("Unsupported size definition \"%s\"", size)
+	return 0, 0, fmt.Errorf("Unsupported size definition %q", size)
 }
 
 // parseExactSize parses exact image size
