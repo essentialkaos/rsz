@@ -19,6 +19,7 @@ import (
 	"github.com/essentialkaos/ek/v12/fsutil"
 	"github.com/essentialkaos/ek/v12/options"
 	"github.com/essentialkaos/ek/v12/strutil"
+	"github.com/essentialkaos/ek/v12/terminal/tty"
 	"github.com/essentialkaos/ek/v12/usage"
 	"github.com/essentialkaos/ek/v12/usage/completion/bash"
 	"github.com/essentialkaos/ek/v12/usage/completion/fish"
@@ -36,7 +37,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "0.0.5"
+	VER  = "0.0.6"
 	DESC = "Simple utility for image resizing"
 )
 
@@ -62,8 +63,8 @@ var optMap = options.Map{
 	OPT_FILTER:       {Value: "CatmullRom"},
 	OPT_LIST_FILTERS: {Type: options.BOOL},
 	OPT_NO_COLOR:     {Type: options.BOOL},
-	OPT_HELP:         {Type: options.BOOL, Alias: "u:usage"},
-	OPT_VER:          {Type: options.BOOL, Alias: "ver"},
+	OPT_HELP:         {Type: options.BOOL},
+	OPT_VER:          {Type: options.MIXED},
 
 	OPT_VERB_VER:     {Type: options.BOOL},
 	OPT_COMPLETION:   {},
@@ -113,16 +114,16 @@ func Init(gitRev string, gomod []byte) {
 	case options.Has(OPT_GENERATE_MAN):
 		os.Exit(genMan())
 	case options.GetB(OPT_VER):
-		showAbout(gitRev)
+		genAbout(gitRev).Print(options.GetS(OPT_VER))
 		return
 	case options.GetB(OPT_VERB_VER):
-		support.ShowSupportInfo(APP, VER, gitRev, gomod)
+		support.Print(APP, VER, gitRev, gomod)
 		return
 	case options.GetB(OPT_LIST_FILTERS):
 		listFilters()
 		return
 	case options.GetB(OPT_HELP) || len(args) < 3:
-		showUsage()
+		genUsage().Print()
 		return
 	}
 
@@ -131,24 +132,7 @@ func Init(gitRev string, gomod []byte) {
 
 // preConfigureUI preconfigures UI based on information about user terminal
 func preConfigureUI() {
-	term := os.Getenv("TERM")
-
-	fmtc.DisableColors = true
-
-	if term != "" {
-		switch {
-		case strings.Contains(term, "xterm"),
-			strings.Contains(term, "color"),
-			term == "screen":
-			fmtc.DisableColors = false
-		}
-	}
-
-	if !fsutil.IsCharacterDevice("/dev/stdout") && os.Getenv("FAKETTY") == "" {
-		fmtc.DisableColors = true
-	}
-
-	if os.Getenv("NO_COLOR") != "" {
+	if !tty.IsTTY() {
 		fmtc.DisableColors = true
 	}
 }
@@ -216,6 +200,10 @@ func resizeImage(srcImage, outImage, size string) error {
 	}
 
 	w, h, err := parseSize(size, img.Bounds())
+
+	if err != nil {
+		return fmt.Errorf("Can't get image size: %v", err.Error())
+	}
 
 	img = imaging.Resize(img, w, h, filter)
 	err = imaging.Save(img, outImage)
@@ -346,11 +334,6 @@ func printError(f string, a ...interface{}) {
 	fmtc.Fprintf(os.Stderr, "{r}"+f+"{!}\n", a...)
 }
 
-// printError prints warning message to console
-func printWarn(f string, a ...interface{}) {
-	fmtc.Fprintf(os.Stderr, "{y}"+f+"{!}\n", a...)
-}
-
 // printErrorAndExit print error message and exit with exit code 1
 func printErrorAndExit(f string, a ...interface{}) {
 	printError(f, a...)
@@ -359,27 +342,17 @@ func printErrorAndExit(f string, a ...interface{}) {
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-// showUsage prints usage info
-func showUsage() {
-	genUsage().Render()
-}
-
-// showAbout prints info about version
-func showAbout(gitRev string) {
-	genAbout(gitRev).Render()
-}
-
 // genCompletion generates completion for different shells
 func genCompletion() int {
 	info := genUsage()
 
 	switch options.GetS(OPT_COMPLETION) {
 	case "bash":
-		fmt.Printf(bash.Generate(info, "rsz"))
+		fmt.Print(bash.Generate(info, "rsz"))
 	case "fish":
-		fmt.Printf(fish.Generate(info, "rsz"))
+		fmt.Print(fish.Generate(info, "rsz"))
 	case "zsh":
-		fmt.Printf(zsh.Generate(info, optMap, "rsz"))
+		fmt.Print(zsh.Generate(info, optMap, "rsz"))
 	default:
 		return 1
 	}
