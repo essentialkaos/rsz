@@ -18,7 +18,7 @@
 
 #### From source
 
-To build the `rsz` from scratch, make sure you have a working Go 1.19+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+To build the `rsz` from scratch, make sure you have a working Go 1.19+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/rsz@latest
@@ -32,17 +32,13 @@ You can download prebuilt binaries for Linux and macOS from [EK Apps Repository]
 bash <(curl -fsSL https://apps.kaos.st/get) rsz
 ```
 
-#### Docker Image
+#### Container Image
 
-The latest version of `rsz` also available as Docker image on [Docker Hub](https://kaos.sh/d/rsz) and [GitHub Container Registry](https://kaos.sh/p/rsz):
-
-```bash
-docker run --rm -it essentialkaos/rsz:latest image.png 0.55 thumbnail.png
-```
-
-or
+The latest version of `rsz` also available as container image on [Docker Hub](https://kaos.sh/d/rsz) and [GitHub Container Registry](https://kaos.sh/p/rsz):
 
 ```bash
+podman run --rm -it ghcr.io/essentialkaos/rsz:latest image.png 0.55 thumbnail.png
+# or
 docker run --rm -it ghcr.io/essentialkaos/rsz:latest image.png 0.55 thumbnail.png
 ```
 
