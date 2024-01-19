@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/disintegration/imaging v1.6.2
 	github.com/essentialkaos/depsy v1.1.0
-	github.com/essentialkaos/ek/v12 v12.94.0
+	github.com/essentialkaos/ek/v12 v12.95.0
 )
 
 require (
