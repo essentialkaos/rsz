@@ -286,8 +286,8 @@ func parseSize(size string, bounds image.Rectangle) (int, int, error) {
 
 // parseExactSize parses exact image size
 func parseExactSize(size string) (int, int, error) {
-	ws := strutil.ReadField(size, 0, false, "x")
-	hs := strutil.ReadField(size, 1, false, "x")
+	ws := strutil.ReadField(size, 0, false, 'x')
+	hs := strutil.ReadField(size, 1, false, 'x')
 
 	w, err := strconv.Atoi(ws)
 
