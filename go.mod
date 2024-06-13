@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/disintegration/imaging v1.6.2
-	github.com/essentialkaos/ek/v12 v12.126.0
+	github.com/essentialkaos/ek/v12 v12.126.1
 )
 
 require (
