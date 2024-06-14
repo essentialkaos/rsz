@@ -9,6 +9,6 @@ require (
 
 require (
 	github.com/essentialkaos/depsy v1.3.0 // indirect
-	golang.org/x/image v0.15.0 // indirect
+	golang.org/x/image v0.17.0 // indirect
 	golang.org/x/sys v0.21.0 // indirect
 )
