@@ -1,11 +1,10 @@
-<p align="center"><a href="#readme"><img src="https://gh.kaos.st/rsz.svg"/></a></p>
+<p align="center"><a href="#readme"><img src=".github/images/card.svg"/></a></p>
 
 <p align="center">
   <a href="https://kaos.sh/w/rsz/ci"><img src="https://kaos.sh/w/rsz/ci.svg" alt="GitHub Actions CI Status" /></a>
-  <a href="https://kaos.sh/r/rsz"><img src="https://kaos.sh/r/rsz.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/b/rsz"><img src="https://kaos.sh/b/b1546369-70e1-4a1d-9229-8df3c0e4aabd.svg" alt="Codebeat badge" /></a>
   <a href="https://kaos.sh/w/rsz/codeql"><img src="https://kaos.sh/w/rsz/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
-  <a href="#license"><img src="https://gh.kaos.st/apache2.svg"></a>
+  <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
 
 <p align="center"><a href="#installation">Installation</a> • <a href="#command-line-completion">Command-line completion</a> • <a href="#man-documentation">Man documentation</a> • <a href="#usage">Usage</a> • <a href="#ci-status">CI Status</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
@@ -18,7 +17,7 @@
 
 #### From source
 
-To build the `rsz` from scratch, make sure you have a working Go 1.19+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `rsz` from scratch, make sure you have a working Go 1.21+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/rsz@latest
@@ -71,31 +70,7 @@ rsz --generate-man | sudo gzip > /usr/share/man/man1/rsz.1.gz
 
 ### Usage
 
-```
-Usage: rsz {options} src-image size output-image
-
-Options
-
-  --filter, -f name     Resampling filter name
-  --list-filters, -F    Print list of supported resampling filters
-  --no-color, -nc       Disable colors in output
-  --help, -h            Show this help message
-  --version, -v         Show version
-
-Examples
-
-  rsz image.png 256x256 thumbnail.png
-  Convert image to exact size
-
-  rsz -f Lanczos image.png 256x256 thumbnail.png
-  Convert image to exact size using Lanczos resampling filter
-
-  rsz image.png 25% thumbnail.png
-  Convert image to relative size (25% of original)
-
-  rsz image.png 0.55 thumbnail.png
-  Convert image to relative size (55% of original)
-```
+<img src=".github/images/usage.svg" />
 
 ### CI Status
 

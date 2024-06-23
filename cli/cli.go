@@ -21,6 +21,7 @@ import (
 	"github.com/essentialkaos/ek/v12/strutil"
 	"github.com/essentialkaos/ek/v12/support"
 	"github.com/essentialkaos/ek/v12/support/deps"
+	"github.com/essentialkaos/ek/v12/terminal"
 	"github.com/essentialkaos/ek/v12/terminal/tty"
 	"github.com/essentialkaos/ek/v12/usage"
 	"github.com/essentialkaos/ek/v12/usage/completion/bash"
@@ -37,7 +38,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "0.1.0"
+	VER  = "0.1.1"
 	DESC = "Simple utility for image resizing"
 )
 
@@ -98,11 +99,9 @@ func Init(gitRev string, gomod []byte) {
 
 	args, errs := options.Parse(optMap)
 
-	if len(errs) != 0 {
-		for _, err := range errs {
-			printError(err.Error())
-		}
-
+	if !errs.IsEmpty() {
+		terminal.Error("Options parsing errors:")
+		terminal.Error(errs.String())
 		os.Exit(1)
 	}
 
@@ -269,7 +268,7 @@ func checkSrcImage(srcImage string) error {
 		return fmt.Errorf("Image file %s is not readable", srcImage)
 	}
 
-	if !fsutil.IsNonEmpty(srcImage) {
+	if fsutil.IsEmpty(srcImage) {
 		return fmt.Errorf("Image file %s is empty", srcImage)
 	}
 
@@ -333,14 +332,9 @@ func parseRelativeSize(size string, bounds image.Rectangle) (int, int, error) {
 		int(float64(bounds.Max.Y) * mod), nil
 }
 
-// printError prints error message to console
-func printError(f string, a ...interface{}) {
-	fmtc.Fprintf(os.Stderr, "{r}"+f+"{!}\n", a...)
-}
-
 // printErrorAndExit print error message and exit with exit code 1
 func printErrorAndExit(f string, a ...interface{}) {
-	printError(f, a...)
+	terminal.Error(f, a...)
 	os.Exit(1)
 }
 
@@ -352,11 +346,11 @@ func genCompletion() int {
 
 	switch options.GetS(OPT_COMPLETION) {
 	case "bash":
-		fmt.Print(bash.Generate(info, "rsz"))
+		fmt.Print(bash.Generate(info, APP))
 	case "fish":
-		fmt.Print(fish.Generate(info, "rsz"))
+		fmt.Print(fish.Generate(info, APP))
 	case "zsh":
-		fmt.Print(zsh.Generate(info, optMap, "rsz"))
+		fmt.Print(zsh.Generate(info, optMap, APP))
 	default:
 		return 1
 	}
@@ -366,12 +360,7 @@ func genCompletion() int {
 
 // printMan prints man page
 func printMan() {
-	fmt.Println(
-		man.Generate(
-			genUsage(),
-			genAbout(""),
-		),
-	)
+	fmt.Println(man.Generate(genUsage(), genAbout("")))
 }
 
 // genUsage generates usage info
