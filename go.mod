@@ -1,6 +1,6 @@
 module github.com/essentialkaos/rsz
 
-go 1.21
+go 1.22.7
 
 require (
 	github.com/disintegration/imaging v1.6.2
