@@ -2,7 +2,6 @@
 
 <p align="center">
   <a href="https://kaos.sh/w/rsz/ci"><img src="https://kaos.sh/w/rsz/ci.svg" alt="GitHub Actions CI Status" /></a>
-  <a href="https://kaos.sh/b/rsz"><img src="https://kaos.sh/b/b1546369-70e1-4a1d-9229-8df3c0e4aabd.svg" alt="Codebeat badge" /></a>
   <a href="https://kaos.sh/w/rsz/codeql"><img src="https://kaos.sh/w/rsz/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
@@ -17,7 +16,7 @@
 
 #### From source
 
-To build the `rsz` from scratch, make sure you have a working Go 1.21+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `rsz` from scratch, make sure you have a working Go 1.22+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/rsz@latest
