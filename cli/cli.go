@@ -30,7 +30,7 @@ import (
 	"github.com/essentialkaos/ek/v13/usage/man"
 	"github.com/essentialkaos/ek/v13/usage/update"
 
-	"github.com/disintegration/imaging"
+	"github.com/essentialkaos/imaging"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -38,7 +38,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "1.0.0"
+	VER  = "1.1.0"
 	DESC = "Simple utility for image resizing"
 )
 
