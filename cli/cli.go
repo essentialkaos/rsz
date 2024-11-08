@@ -38,7 +38,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "1.2.0"
+	VER  = "1.1.0"
 	DESC = "Simple utility for image resizing"
 )
 
