@@ -30,7 +30,7 @@ import (
 	"github.com/essentialkaos/ek/v13/usage/man"
 	"github.com/essentialkaos/ek/v13/usage/update"
 
-	"github.com/disintegration/imaging"
+	"github.com/essentialkaos/imaging"
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -38,7 +38,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "1.0.0"
+	VER  = "1.1.0"
 	DESC = "Simple utility for image resizing"
 )
 
@@ -101,7 +101,7 @@ func Init(gitRev string, gomod []byte) {
 
 	if !errs.IsEmpty() {
 		terminal.Error("Options parsing errors:")
-		terminal.Error(errs.String())
+		terminal.Error(errs.Error("- "))
 		os.Exit(1)
 	}
 
