@@ -155,9 +155,9 @@ func listFilters() {
 
 	for _, filter := range supportedFilters {
 		if filter == current {
-			fmtc.Printf(" {s}•{!} %s {s-}(default){!}\n", filter)
+			fmtc.Printfn(" {s}•{!} %s {s-}(default){!}", filter)
 		} else {
-			fmtc.Printf(" {s}•{!} %s\n", filter)
+			fmtc.Printfn(" {s}•{!} %s", filter)
 		}
 	}
 
@@ -182,8 +182,8 @@ func process(args options.Arguments) {
 		printErrorAndExit(err.Error())
 	}
 
-	fmtc.Printf(
-		"{g}Image successfully resized and saved as {g*}%s{!} {s-}(%s){!}\n",
+	fmtc.Printfn(
+		"{g}Image successfully resized and saved as {g*}%s{!} {s-}(%s){!}",
 		outImage, fmtutil.PrettySize(fsutil.GetSize(outImage)),
 	)
 }
