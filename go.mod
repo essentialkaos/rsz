@@ -3,7 +3,7 @@ module github.com/essentialkaos/rsz
 go 1.22.8
 
 require (
-	github.com/essentialkaos/ek/v13 v13.15.3
+	github.com/essentialkaos/ek/v13 v13.15.4
 	github.com/essentialkaos/imaging v1.8.0
 )
 
