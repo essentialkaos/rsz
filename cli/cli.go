@@ -38,7 +38,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "1.1.0"
+	VER  = "1.1.1"
 	DESC = "Simple utility for image resizing"
 )
 
@@ -101,7 +101,7 @@ func Init(gitRev string, gomod []byte) {
 
 	if !errs.IsEmpty() {
 		terminal.Error("Options parsing errors:")
-		terminal.Error(errs.Error("- "))
+		terminal.Error(errs.Error(" - "))
 		os.Exit(1)
 	}
 
@@ -130,7 +130,12 @@ func Init(gitRev string, gomod []byte) {
 		os.Exit(0)
 	}
 
-	process(args)
+	err := process(args)
+
+	if err != nil {
+		terminal.Error(err)
+		os.Exit(1)
+	}
 }
 
 // preConfigureUI preconfigures UI based on information about user terminal
@@ -165,7 +170,7 @@ func listFilters() {
 }
 
 // process starts image processing
-func process(args options.Arguments) {
+func process(args options.Arguments) error {
 	srcImage := args.Get(0).Clean().String()
 	size := args.Get(1).String()
 	outImage := args.Get(2).Clean().String()
@@ -173,19 +178,21 @@ func process(args options.Arguments) {
 	err := checkSrcImage(srcImage)
 
 	if err != nil {
-		printErrorAndExit(err.Error())
+		return err
 	}
 
 	err = resizeImage(srcImage, outImage, size)
 
 	if err != nil {
-		printErrorAndExit(err.Error())
+		return err
 	}
 
 	fmtc.Printfn(
 		"{g}Image successfully resized and saved as {g*}%s{!} {s-}(%s){!}",
 		outImage, fmtutil.PrettySize(fsutil.GetSize(outImage)),
 	)
+
+	return nil
 }
 
 // resizeImage resizes image
@@ -199,20 +206,20 @@ func resizeImage(srcImage, outImage, size string) error {
 	img, err := imaging.Open(srcImage)
 
 	if err != nil {
-		return fmt.Errorf("Can't open image: %v", err.Error())
+		return fmt.Errorf("Can't open image: %w", err)
 	}
 
 	w, h, err := parseSize(size, img.Bounds())
 
 	if err != nil {
-		return fmt.Errorf("Can't get image size: %v", err.Error())
+		return fmt.Errorf("Can't get image size: %w", err)
 	}
 
 	img = imaging.Resize(img, w, h, filter)
 	err = imaging.Save(img, outImage)
 
 	if err != nil {
-		return fmt.Errorf("Can't save image: %v", err.Error())
+		return fmt.Errorf("Can't save image: %w", err)
 	}
 
 	return nil
@@ -316,7 +323,7 @@ func parseRelativeSize(size string, bounds image.Rectangle) (int, int, error) {
 		mod, err = strconv.ParseFloat(strings.Trim(size, "%"), 64)
 
 		if err != nil {
-			return 0, 0, fmt.Errorf("Can't parse size: %v", err)
+			return 0, 0, fmt.Errorf("Can't parse size: %w", err)
 		}
 
 		mod /= 100.0
@@ -324,18 +331,12 @@ func parseRelativeSize(size string, bounds image.Rectangle) (int, int, error) {
 		mod, err = strconv.ParseFloat(size, 64)
 
 		if err != nil {
-			return 0, 0, fmt.Errorf("Can't parse size: %v", err)
+			return 0, 0, fmt.Errorf("Can't parse size: %w", err)
 		}
 	}
 
 	return int(float64(bounds.Max.X) * mod),
 		int(float64(bounds.Max.Y) * mod), nil
-}
-
-// printErrorAndExit print error message and exit with exit code 1
-func printErrorAndExit(f string, a ...interface{}) {
-	terminal.Error(f, a...)
-	os.Exit(1)
 }
 
 // ////////////////////////////////////////////////////////////////////////////////// //
