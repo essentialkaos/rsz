@@ -11,7 +11,7 @@
   </defs>
 
   <style>
-    text { font-family: ui-monospace, 'JetBrains Mono', 'Fira Code', 'Iosevka', SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; font-size: 14px; font-display: swap; white-space: pre; }
+    text { font-family: ui-monospace, 'JetBrains Mono', 'Fira Code', 'Iosevka', SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; font-size: 14px; font-display: swap; font-variant-ligatures: none; white-space: pre; }
     tspan { white-space: pre; }
 
     .terminal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; font-weight: 500; font-size: 15px; }
@@ -21,7 +21,7 @@
     tspan.UU { text-decoration-line: underline; }
     tspan.DD { opacity: 0.75; }
 
-    text { fill: #333; }
+    text { fill: #222; }
     .terminal { fill: #333; }
     .bg { fill: #F0F0F0; stop-color: #F0F0F0; }
     .window { fill: #E5E5E5; }
@@ -31,8 +31,8 @@
     tspan.b { fill: #0060BA; }
     tspan.m { fill: #BA00AD; }
     tspan.c { fill: #00B7BA; }
-    tspan.s { fill: #696969; }
-    tspan.d { fill: #AAA; }
+    tspan.s { fill: #555; }
+    tspan.d { fill: #999; }
     tspan.R { fill: #EA4B4B; }
     tspan.G { fill: #88DB43; }
     tspan.Y { fill: #D3BA3B; }
