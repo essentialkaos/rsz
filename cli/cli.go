@@ -52,6 +52,7 @@ const (
 	OPT_HELP         = "h:help"
 	OPT_VER          = "v:version"
 
+	OPT_UPDATE       = "U:update"
 	OPT_VERB_VER     = "vv:verbose-version"
 	OPT_COMPLETION   = "completion"
 	OPT_GENERATE_MAN = "generate-man"
@@ -67,6 +68,7 @@ var optMap = options.Map{
 	OPT_HELP:         {Type: options.BOOL},
 	OPT_VER:          {Type: options.MIXED},
 
+	OPT_UPDATE:       {Type: options.MIXED},
 	OPT_VERB_VER:     {Type: options.BOOL},
 	OPT_COMPLETION:   {},
 	OPT_GENERATE_MAN: {Type: options.BOOL},
@@ -125,6 +127,8 @@ func Init(gitRev string, gomod []byte) {
 	case options.GetB(OPT_LIST_FILTERS):
 		listFilters()
 		os.Exit(0)
+	case withSelfUpdate && options.GetB(OPT_UPDATE):
+		os.Exit(updateBinary())
 	case options.GetB(OPT_HELP) || len(args) < 3:
 		genUsage().Print()
 		os.Exit(0)
@@ -370,6 +374,11 @@ func genUsage() *usage.Info {
 
 	info.AddOption(OPT_FILTER, "Resampling filter name", "name")
 	info.AddOption(OPT_LIST_FILTERS, "Print list of supported resampling filters")
+
+	if withSelfUpdate {
+		info.AddOption(OPT_UPDATE, "Update application to the latest version")
+	}
+
 	info.AddOption(OPT_NO_COLOR, "Disable colors in output")
 	info.AddOption(OPT_HELP, "Show this help message")
 	info.AddOption(OPT_VER, "Show version")
