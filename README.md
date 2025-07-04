@@ -41,6 +41,20 @@ podman run --rm -it ghcr.io/essentialkaos/rsz:latest image.png 0.55 thumbnail.pn
 docker run --rm -it ghcr.io/essentialkaos/rsz:latest image.png 0.55 thumbnail.png
 ```
 
+### Upgrading
+
+Since version `1.2.0` you can update `rsz` to the latest release using [self-update feature](https://github.com/essentialkaos/.github/blob/master/APPS-UPDATE.md):
+
+```bash
+rsz --update
+```
+
+This command will runs a self-update in interactive mode. If you want to run a quiet update (_no output_), use the following command:
+
+```bash
+rsz --update=quiet
+```
+
 ### Command-line completion
 
 You can generate completion for `bash`, `zsh` or `fish` shell.
