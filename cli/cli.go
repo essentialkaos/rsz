@@ -38,7 +38,7 @@ import (
 // Basic utility info
 const (
 	APP  = "rsz"
-	VER  = "1.1.1"
+	VER  = "1.2.0"
 	DESC = "Simple utility for image resizing"
 )
 
@@ -61,7 +61,7 @@ const (
 
 // optMap contains information about all supported options
 var optMap = options.Map{
-	OPT_FILTER:       {Value: "CatmullRom"},
+	OPT_FILTER:       {Value: "Lanczos"},
 	OPT_LIST_FILTERS: {Type: options.BOOL},
 	OPT_NO_COLOR:     {Type: options.BOOL},
 	OPT_HELP:         {Type: options.BOOL},
