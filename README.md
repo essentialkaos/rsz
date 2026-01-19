@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://kaos.sh/y/rsz"><img src="https://kaos.sh/y/ccb1a82d38264e48bd7d2238e493e29e.svg" alt="Codacy" /></a>
-  <a href="https://kaos.sh/w/rsz/ci"><img src="https://kaos.sh/w/rsz/ci.svg" alt="GitHub Actions CI Status" /></a>
+  <a href="https://kaos.sh/w/rsz/ci-push"><img src="https://kaos.sh/w/rsz/ci-push.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/w/rsz/codeql"><img src="https://kaos.sh/w/rsz/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
@@ -90,8 +90,8 @@ rsz --generate-man | sudo gzip > /usr/share/man/man1/rsz.1.gz
 
 | Branch | Status |
 |--------|--------|
-| `master` | [![CI](https://kaos.sh/w/rsz/ci.svg?branch=master)](https://kaos.sh/w/rsz/ci?query=branch:master) |
-| `develop` | [![CI](https://kaos.sh/w/rsz/ci.svg?branch=develop)](https://kaos.sh/w/rsz/ci?query=branch:develop) |
+| `master` | [![CI](https://kaos.sh/w/rsz/ci-push.svg?branch=master)](https://kaos.sh/w/rsz/ci-push?query=branch:master) |
+| `develop` | [![CI](https://kaos.sh/w/rsz/ci-push.svg?branch=develop)](https://kaos.sh/w/rsz/ci-push?query=branch:develop) |
 
 ### Contributing
 
