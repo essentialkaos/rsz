@@ -4,7 +4,7 @@ ARG REGISTRY="ghcr.io"
 
 ## BUILDER #####################################################################
 
-FROM ${REGISTRY}/essentialkaos/golang:alpine3.22 as builder
+FROM ${REGISTRY}/essentialkaos/golang:alpine3.23 AS builder
 
 WORKDIR /go/src/github.com/essentialkaos/rsz
 
@@ -15,7 +15,7 @@ RUN make deps && make all
 
 ## FINAL IMAGE #################################################################
 
-FROM ${REGISTRY}/essentialkaos/alpine:3.22
+FROM ${REGISTRY}/essentialkaos/alpine:3.23 AS final
 
 LABEL org.opencontainers.image.title="rsz" \
       org.opencontainers.image.description="Simple utility for image resizing" \
