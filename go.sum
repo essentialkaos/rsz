@@ -2,8 +2,8 @@ github.com/essentialkaos/check v1.4.1 h1:SuxXzrbokPGTPWxGRnzy0hXvtb44mtVrdNxgPa1
 github.com/essentialkaos/check v1.4.1/go.mod h1:xQOYwFvnxfVZyt5Qvjoa1SxcRqu5VyP77pgALr3iu+M=
 github.com/essentialkaos/depsy v1.3.1 h1:00k9QcMsdPM4IzDaEFHsTHBD/zoM0oxtB5+dMUwbQa8=
 github.com/essentialkaos/depsy v1.3.1/go.mod h1:B5+7Jhv2a2RacOAxIKU2OeJp9QfZjwIpEEPI5X7auWM=
-github.com/essentialkaos/ek/v14 v14.2.0 h1:KriJq12lP5YkC21cLFw/YMR+/CBQYEt49wd0tKKCBkE=
-github.com/essentialkaos/ek/v14 v14.2.0/go.mod h1:+hQ3unv4RW17r3BIiBNu/ZSJwziUndvXBQBkhym/ARg=
+github.com/essentialkaos/ek/v14 v14.2.1 h1:DmV/jjtw+wnOviCfKPJsZyVLlKeMfWj448GnMNOWI40=
+github.com/essentialkaos/ek/v14 v14.2.1/go.mod h1:Vm2fV6tXTjq9SRS5A3T+brkWF+budlRDPDfyne2kpUs=
 github.com/essentialkaos/imaging v1.8.0 h1:R31aqe92BzOR8VGyuocIof9PVxlY+bRXLYZFQhOw/aY=
 github.com/essentialkaos/imaging v1.8.0/go.mod h1:EunBHVch5Wj5Ycj9GS4XREIzCsRc6NmaSRUltSnovng=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
@@ -14,5 +14,5 @@ github.com/rogpeppe/go-internal v1.14.1 h1:UQB4HGPB6osV0SQTLymcB4TgvyWu6ZyliaW0t
 github.com/rogpeppe/go-internal v1.14.1/go.mod h1:MaRKkUm5W0goXpeCfT7UZI6fk/L7L7so1lCWt35ZSgc=
 golang.org/x/image v0.41.0 h1:8wS72eGJMJaBxK6okTzd4WaXumUlTVlb753MlsSvTCo=
 golang.org/x/image v0.41.0/go.mod h1:uIc348UZMSvS5Z65CVZ7iDPaNobNFEPeJ4kbqTOszmA=
-golang.org/x/sys v0.45.0 h1:dO4czNzziLiiXplLQgBCEpCvXQ3dnkn0SdaZSYdQ+FY=
-golang.org/x/sys v0.45.0/go.mod h1:4GL1E5IUh+htKOUEOaiffhrAeqysfVGipDYzABqnCmw=
+golang.org/x/sys v0.46.0 h1:noSf2Fq6F8DBgS+LysIkx7rIExoNHJsxOAtPp4rthXw=
+golang.org/x/sys v0.46.0/go.mod h1:4GL1E5IUh+htKOUEOaiffhrAeqysfVGipDYzABqnCmw=
