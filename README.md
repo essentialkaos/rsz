@@ -17,7 +17,7 @@
 
 #### From source
 
-To build the `rsz` from scratch, make sure you have a working Go 1.25+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `rsz` from scratch, make sure you have a working Go 1.26+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/rsz@latest
