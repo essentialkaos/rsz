@@ -4,7 +4,7 @@ go 1.26.0
 
 require (
 	github.com/essentialkaos/ek/v14 v14.4.3
-	github.com/essentialkaos/imaging v1.8.0
+	github.com/essentialkaos/imaging v1.8.1
 )
 
 require (
