@@ -1,9 +1,9 @@
 <p align="center"><a href="#readme"><img src=".github/images/card.svg"/></a></p>
 
 <p align="center">
-  <a href="https://kaos.sh/y/rsz"><img src="https://kaos.sh/y/ccb1a82d38264e48bd7d2238e493e29e.svg" alt="Codacy" /></a>
-  <a href="https://kaos.sh/w/rsz/ci-push"><img src="https://kaos.sh/w/rsz/ci-push.svg" alt="GitHub Actions CI Status" /></a>
-  <a href="https://kaos.sh/w/rsz/codeql"><img src="https://kaos.sh/w/rsz/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
+  <a href="https://kaos.sh/y/rsz"><img src="https://app.codacy.com/project/badge/Grade/ccb1a82d38264e48bd7d2238e493e29e" alt="Codacy" /></a>
+  <a href="https://kaos.sh/w/rsz/ci-push"><img src="https://github.com/essentialkaos/rsz/actions/workflows/ci-push.yml/badge.svg" alt="GitHub Actions CI Status" /></a>
+  <a href="https://kaos.sh/w/rsz/codeql"><img src="https://github.com/essentialkaos/rsz/actions/workflows/codeql.yml/badge.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
 
@@ -17,7 +17,7 @@
 
 #### From source
 
-To build the `rsz` from scratch, make sure you have a working Go 1.23+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+To build the `rsz` from scratch, make sure you have a working Go 1.25+ workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 ```
 go install github.com/essentialkaos/rsz@latest
@@ -61,17 +61,17 @@ You can generate completion for `bash`, `zsh` or `fish` shell.
 
 Bash:
 ```bash
-sudo rsz --completion=bash 1> /etc/bash_completion.d/rsz
+rsz --completion=bash | sudo tee /etc/bash_completion.d/rsz > /dev/null
 ```
 
 ZSH:
 ```bash
-sudo rsz --completion=zsh 1> /usr/share/zsh/site-functions/rsz
+rsz --completion=zsh | sudo tee /usr/share/zsh/site-functions/rsz > /dev/null
 ```
 
 Fish:
 ```bash
-sudo rsz --completion=fish 1> /usr/share/fish/vendor_completions.d/rsz.fish
+rsz --completion=fish | sudo tee /usr/share/fish/vendor_completions.d/rsz.fish > /dev/null
 ```
 
 ### Man documentation
@@ -90,8 +90,8 @@ rsz --generate-man | sudo gzip > /usr/share/man/man1/rsz.1.gz
 
 | Branch | Status |
 |--------|--------|
-| `master` | [![CI](https://kaos.sh/w/rsz/ci-push.svg?branch=master)](https://kaos.sh/w/rsz/ci-push?query=branch:master) |
-| `develop` | [![CI](https://kaos.sh/w/rsz/ci-push.svg?branch=develop)](https://kaos.sh/w/rsz/ci-push?query=branch:develop) |
+| `master` | [![CI](https://github.com/essentialkaos/rsz/actions/workflows/ci-push.yml/badge.svg?branch=master)](https://kaos.sh/w/rsz/ci-push?query=branch:master) |
+| `develop` | [![CI](https://github.com/essentialkaos/rsz/actions/workflows/ci-push.yml/badge.svg?branch=develop)](https://kaos.sh/w/rsz/ci-push?query=branch:develop) |
 
 ### Contributing
 
